@@ -14,6 +14,7 @@ func SetupRoutes() {
 
 	// Check balances route
 	client.POST("/start", handlers.StartTransaction)
+	client.POST("/add", handlers.AddBalance)
 
 	// Rout route
 	root.Run()
