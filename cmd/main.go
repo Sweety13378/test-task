@@ -10,9 +10,10 @@ import (
 func main() {
 	ctx := context.Background()
 	err := database.Connect(ctx, database.Config{
-		Username:    "root",
+		Username:    "postgres",
 		Password:    "root",
 		Host:        "localhost",
+		DbName:      "postgres",
 		Port:        5432,
 		Timeout:     1000,
 		MaxAttempts: 5,
@@ -25,7 +26,6 @@ func main() {
     CREATE TABLE clients (
         id SERIAL PRIMARY KEY NOT NULL,
         balance int
-        createdAt TIMESTAMP
     )`)
 	if err != nil {
 		log.Fatal(err)
