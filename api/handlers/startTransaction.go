@@ -16,7 +16,7 @@ func StartTransaction(c *gin.Context) {
 	// Start tx
 	q := `BEGIN 
 		SET TRANSACTION ISOLATED LEVEL SERIALIZABLE 
-			UPDATE clients_schema.COLUMNS
+			UPDATE clients_schema.CLIENTS
 			SET balance = client.balance - ?
 			FROM (
 				SELECT balance FROM clients_schema.COLUMNS

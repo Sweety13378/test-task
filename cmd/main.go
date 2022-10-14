@@ -22,11 +22,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	_, err = database.Conn.Exec(ctx, `CREATE SCHEMA clients
-    CREATE TABLE clients (
-        id SERIAL PRIMARY KEY NOT NULL,
-        balance int
-    )`)
+	_, err = database.Conn.Exec(ctx, `
+		DROP SCHEMA clients CASCADE;
+		CREATE SCHEMA clients
+    	CREATE TABLE clients.CLIENTS (
+        	id SERIAL PRIMARY KEY NOT NULL,
+        	balance int
+    	)`)
 	if err != nil {
 		log.Fatal(err)
 	}

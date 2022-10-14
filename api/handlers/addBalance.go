@@ -13,7 +13,7 @@ func AddBalance(c *gin.Context) {
 	// Start tx
 	q := `BEGIN
 		SET TRANSACTION ISOLATED LEVEL SERIALIZED
-			UPDATE clients_schema.columns
+			UPDATE clients_schema.CLIENTS
 			SET balance = balance + 1
 			WHERE = id = ?
 	COMMIT`
